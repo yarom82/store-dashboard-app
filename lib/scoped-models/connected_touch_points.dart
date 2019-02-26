@@ -42,7 +42,6 @@ mixin TouchPointsModel on ConnectedTouchPointsModel {
     if (selectedTouchPointId == null) {
       return null;
     }
-
     return _touchPoints.firstWhere((TouchPoint touchPoint) {
       return touchPoint.id == _selTouchPointId;
     });
@@ -56,7 +55,6 @@ mixin TouchPointsModel on ConnectedTouchPointsModel {
     _isLoading = true;
     notifyListeners();
     return http
-    //.get('https://flutter-products.firebaseio.com/products.json')
         .get('https://poseventsapi.azurewebsites.net/status/4801')
         .then<Null>((http.Response response) {
       print('response: ' + response.body);
@@ -75,31 +73,6 @@ mixin TouchPointsModel on ConnectedTouchPointsModel {
         fetchedTouchPointList.add(touchPoint);
       });
 
-      // final List<Map<String, dynamic>> touchPointListData = jsonResponse['data'];
-      // touchPointListData.forEach((Map<String touchPointId, dynamic touchPointData> d) {
-      //   print('touchPointData-first_name: ' + touchPointData['first_name']);
-      //   print('touchPointId: ' + touchPointId);
-      //   final TouchPoint touchPoint = TouchPoint(
-      //       id: touchPointId,
-      //       cashier: touchPointData['first_name'],
-      //       state: 'state', // touchPointData['last_name'],
-      //       type: touchPointData['last_name']);
-      //   fetchedTouchPointList.add(touchPoint);
-      // });
-      final TouchPoint tp1 = new TouchPoint(id: '1', cashier: 'cashier 1', state: 'online', type: 'POS');
-      final TouchPoint tp2 = new TouchPoint(id: '2', cashier: 'cashier 2', state: 'offline', type: 'POS');
-      final TouchPoint tp3 = new TouchPoint(id: '3', cashier: 'cashier 3', state: 'online', type: 'SCO');
-      final TouchPoint tp4 = new TouchPoint(id: '4', cashier: 'cashier 4', state: 'online', type: 'SCO');
-      final TouchPoint tp5 = new TouchPoint(id: '5', cashier: 'cashier 5', state: 'online', type: 'SCO');
-      final TouchPoint tp6 = new TouchPoint(id: '6', cashier: 'cashier 6', state: 'offline', type: 'SCO');
-      final TouchPoint tp7 = new TouchPoint(id: '7', cashier: 'cashier 7', state: 'online', type: 'SCO');
-      // fetchedTouchPointList.add(tp1);
-      // fetchedTouchPointList.add(tp2);
-      // fetchedTouchPointList.add(tp3);
-      // fetchedTouchPointList.add(tp4);
-      // fetchedTouchPointList.add(tp5);
-      // fetchedTouchPointList.add(tp6);
-      // fetchedTouchPointList.add(tp7);
       _touchPoints = fetchedTouchPointList;
       _isLoading = false;
       notifyListeners();

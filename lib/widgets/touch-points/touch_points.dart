@@ -19,11 +19,6 @@ class TouchPoints extends StatelessWidget {
           return TouchPointCard(context, touchPoints[index], index);
         })
       );
-      // touchPointCards = ListView.builder(
-      //   itemBuilder: (BuildContext context, int index) =>
-      //       TouchPointCard(touchPoints[index], index),
-      //   itemCount: touchPoints.length,
-      // );
     } else {
       touchPointCards = Container();
     }
@@ -32,7 +27,6 @@ class TouchPoints extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     print('[TouchPoints Widget] build()');
     return ScopedModelDescendant<MainModel>(
       builder: (BuildContext context, Widget child, MainModel model) {

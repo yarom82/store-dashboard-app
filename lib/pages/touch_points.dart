@@ -32,19 +32,6 @@ class _TouchPointsPageState extends State<TouchPointsPage> {
         Widget content = Center(child: Text('No Touch Points Found!'));
         if (model.displayedTouchPoints.length > 0 && !model.isLoading) {
           content = Container(
-            /*
-            decoration: new BoxDecoration(
-              gradient: new LinearGradient(
-                begin: FractionalOffset.topCenter,
-                end: FractionalOffset.bottomCenter,
-                colors: [
-                  const Color.fromARGB(255, 35, 135, 70),
-                  const Color.fromARGB(255, 28, 60, 142),
-                ],
-                stops: [0.0, 1.0],
-              )
-            ),
-            */
             child: TouchPoints(context),
           );
         } else if (model.isLoading) {
@@ -76,8 +63,6 @@ class _TouchPointsPageState extends State<TouchPointsPage> {
               colors: [
                 const Color.fromARGB(255, 38, 180, 20),
                 const Color.fromARGB(255, 28, 60, 142),
-                // const Color.fromARGB(255, 35, 135, 70),
-                // const Color.fromARGB(255, 28, 60, 142),
               ],
               stops: [0.0, 1.0],
             )
@@ -97,7 +82,6 @@ class _TouchPointsPageState extends State<TouchPointsPage> {
                 fit: BoxFit.fill,
               ),
             ),
-            // backgroundColor: Color.fromARGB(255, 35, 135, 70),
             title: Center(
               child: Text('Store Dashboard')
             ),
@@ -129,6 +113,3 @@ class _TouchPointsPageState extends State<TouchPointsPage> {
     );
   }
 }
-
-
-

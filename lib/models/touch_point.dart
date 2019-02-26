@@ -16,5 +16,5 @@ class TouchPoint {
   });
 
   factory TouchPoint.fromJson(Map<String, dynamic> json) => 
-    TouchPoint(id: json["id"], cashier: json["cashierName"], type: 'POS', state: 'online');
+    TouchPoint(id: json["id"], cashier: json["cashierName"], type: 'POS', state: json["cashierName"] != null && json["cashierName"] != '' ? 'online' : 'offline');
 }
